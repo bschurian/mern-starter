@@ -1,4 +1,5 @@
 import Post from './models/post';
+import Ticket from './models/ticket';
 
 export default function () {
   Post.count().exec((err, count) => {
@@ -38,6 +39,24 @@ export default function () {
     const post2 = new Post({ name: 'Admin', title: 'Lorem Ipsum', slug: 'lorem-ipsum', cuid: 'cikqgkv4q01ck7453ualdn3hf', content: content2 });
 
     Post.create([post1, post2], (error) => {
+      if (!error) {
+        // console.log('ready to go....');
+      }
+    });
+  });
+  Ticket.count().exec((err, count) => {
+    if (count > 0) {
+      return;
+    }
+
+    const content1 = 'Kinoplex 24 Film: "Krieg der Sterne"';
+
+    const content2 = 'Bahnticket München-Berlin 12.3 Zug 54321';
+
+    const ticket1 = new Ticket({ name: 'Kinoticket', cuid: 'cikqgkv4q01ck7453ualdn3hd', content: content1 });
+    const ticket2 = new Ticket({ name: 'Bahnticket', cuid: 'cikqgkv4q01ck7453ualdn3hf', content: content2 });
+
+    Ticket.create([ticket1, ticket2], (error) => {
       if (!error) {
         // console.log('ready to go....');
       }
