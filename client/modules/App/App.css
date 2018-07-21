@@ -16,7 +16,7 @@ li {
 .ticket {
   white-space: normal;
   background-color: black;
-  background-image: url(static/imgs/discoBG.png);
+  /* background-image: url(static/imgs/discoBG.png); */
   background-size: 70%;
   background-position-x: right;
   background-position-y: bottom;
