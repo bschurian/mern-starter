@@ -8,10 +8,10 @@ class TicketList extends Component {
     this.state = {
       nums: [1],
       text: 'abcdef'
-    }
+    };
   }
   componentDidMount() {
-    this.updateTickets();
+    // this.updateTickets();
   }
   updateTickets() {
     fetch('/tickets')
@@ -40,8 +40,8 @@ class TicketList extends Component {
         <p>{this.state.text}</p><br />
         <button onClick={() => this.handleClick()}>More Tickets</button>
         <ul>
-          {this.state.nums.map(i => { return { i: i, tOffset: i } })
-            //[{ "i": 0, "tOffset": 0 }, { "i": 1, "tOffset": 1 }, { "i": 2, "tOffset": 2 }, { "i": 3, "tOffset": 3 }, { "i": 4, "tOffset": 4 }, { "i": 5, "tOffset": 5 }, { "i": 6, "tOffset": 6 }]
+          {this.state.nums.map(index => { return { i: index, tOffset: index }; })
+            // [{ "i": 0, "tOffset": 0 }, { "i": 1, "tOffset": 1 }, { "i": 2, "tOffset": 2 }, { "i": 3, "tOffset": 3 }, { "i": 4, "tOffset": 4 }, { "i": 5, "tOffset": 5 }, { "i": 6, "tOffset": 6 }]
             .map(json => <Ticket key={json.i} i={json.i} text={json.tOffset} />)
           }
         </ul>

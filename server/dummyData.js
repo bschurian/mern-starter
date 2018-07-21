@@ -44,22 +44,22 @@ export default function () {
       }
     });
   });
-  Ticket.count().exec((err, count) => {
-    if (count > 0) {
-      return;
-    }
+  // Ticket.count().exec((err, count) => {
+  //   if (count > 0) {
+  //     return;
+  //   }
 
-    const content1 = 'Kinoplex 24 Film: "Krieg der Sterne"';
+  //   const content1 = 'Kinoplex 24 Film: "Krieg der Sterne"';
 
-    const content2 = 'Bahnticket München-Berlin 12.3 Zug 54321';
+  //   const content2 = 'Bahnticket München-Berlin 12.3 Zug 54321';
 
-    const ticket1 = new Ticket({ name: 'Kinoticket', cuid: 'cikqgkv4q01ck7453ualdn3hd', content: content1 });
-    const ticket2 = new Ticket({ name: 'Bahnticket', cuid: 'cikqgkv4q01ck7453ualdn3hf', content: content2 });
+  //   const ticket1 = new Ticket({ name: 'Kinoticket', cuid: 'cikqgkv4q01ck7453ualdn3hd', content: content1 });
+  //   const ticket2 = new Ticket({ name: 'Bahnticket', cuid: 'cikqgkv4q01ck7453ualdn3hf', content: content2 });
 
-    Ticket.create([ticket1, ticket2], (error) => {
-      if (!error) {
-        // console.log('ready to go....');
-      }
-    });
-  });
+  //   Ticket.create([ticket1, ticket2], (error) => {
+  //     if (!error) {
+  //       // console.log('ready to go....');
+  //     }
+  //   });
+  // });
 }

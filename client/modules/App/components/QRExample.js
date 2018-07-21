@@ -10,7 +10,7 @@ class QRExample extends Component {
       text: 'asdfqwer',
       textQr: <p>no not yet parsed</p>,
       qrText: 'not yet parsed'
-    }
+    };
   }
   qrToString() {
     const that = this;
@@ -33,26 +33,26 @@ class QRExample extends Component {
   }
   stringToQR(s) {
     this.setState({ textQr: <QRCode value={s} /> });
-    console.log(this.state);
   }
   render() {
     return (
       <div>
         <button
           onClick={() => {
-            this.qrToString(this.state.qrText)
-            this.stringToQR(this.state.text)
-          }}>
+            this.qrToString(this.state.qrText);
+            this.stringToQR(this.state.text);
+          }}
+        >
           transfrom
-          </button>
-          <br />
+        </button>
+        <br />
         {this.state.text}
         =>{this.state.textQr}
         ;
         <br />
         <br />
         <br />
-        <img src={ticket} alt='QR-Representation of the ticket' className='qr-small' />
+        <img src={ticket} alt="QR-Representation of the ticket" className="qr-small" />
         =>{this.state.qrText}
       </div >
     );
