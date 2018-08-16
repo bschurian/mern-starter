@@ -7,9 +7,9 @@ class QRExample extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: 'asdfqwer',
+      text: 'Ticket Wallet',
       textQr: <p>no not yet parsed</p>,
-      qrText: 'not yet parsed'
+      qrText: 'not yet parsed',
     };
   }
   qrToString() {

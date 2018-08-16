@@ -72,7 +72,7 @@ app.use(bodyParser.json({ limit: '20mb' }));
 app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(Express.static(path.resolve(__dirname, '../dist/client')));
 app.use('/api', posts);
-// app.use('/api', tickets);
+app.use('/api', tickets);
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
@@ -93,15 +93,16 @@ const renderFullPage = (html, initialState) => {
         ${head.script.toString()}
 
         ${isProdMode ? `<link rel='stylesheet' href='${assetsManifest['/app.css']}' />` : ''}
-        <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'/>
+        
         <link rel="shortcut icon" href="http://res.cloudinary.com/hashnode/image/upload/v1455629445/static_imgs/mern/mern-favicon-circle-fill.png" type="image/png" />
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'/>
       </head>
       <body>
         <div id="root">${process.env.NODE_ENV === 'production' ? html : `<div>${html}</div>`}</div>
         <script>
           window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
           ${isProdMode ?
-          `//<![CDATA[
+      `//<![CDATA[
           window.webpackManifest = ${JSON.stringify(chunkManifest)};
           //]]>` : ''}
         </script>
@@ -111,6 +112,17 @@ const renderFullPage = (html, initialState) => {
     </html>
   `;
 };
+//        <link rel="shortcut icon" href="http://res.cloudinary.com/hashnode/image/upload/v1455629445/static_imgs/mern/mern-favicon-circle-fill.png" type="image/png" />
+
+{/*
+          <link rel="apple-touch-icon" sizes="120x120" href='${assetsManifest['/static/imgs/apple-touch-icon.png']}>
+ <link rel="icon" type="image/png" sizes="32x32" href='${assetsManifest[' /favicon - 32x32.png']}>
+  < link rel = "icon" type = "image/png" sizes = "16x16" href = '${assetsManifest[' / favicon - 16x16.png']}' >
+    <link rel="manifest" href="/site.webmanifest">
+      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#2b5797">
+          <meta name="theme-color" content="#ffffff">
+ */}
 
 const renderError = err => {
   const softTab = '&#32;&#32;&#32;&#32;';

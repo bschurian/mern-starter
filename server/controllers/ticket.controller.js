@@ -14,7 +14,8 @@ export function getTickets(req, res) {
     if (err) {
       res.status(500).send(err);
     }
-    res.json({ tickets });
+    // res.json({ tickets });
+    res.json([0, 1, 2]);
   });
 }
 
@@ -25,7 +26,8 @@ export function getTickets(req, res) {
  * @returns void
  */
 export function addTicket(req, res) {
-  if (!req.body.ticket.name || !req.body.ticket.title || !req.body.ticket.content) {
+  console.log(req.body);
+  if (!req.body.ticket.title || !req.body.ticket.content) {
     res.status(403).end();
   }
 
@@ -33,7 +35,7 @@ export function addTicket(req, res) {
 
   // Let's sanitize inputs
   newTicket.title = sanitizeHtml(newTicket.title);
-  newTicket.name = sanitizeHtml(newTicket.name);
+  // newTicket.name = sanitizeHtml(newTicket.name);
   newTicket.content = sanitizeHtml(newTicket.content);
 
   newTicket.slug = slug(newTicket.title.toLowerCase(), { lowercase: true });

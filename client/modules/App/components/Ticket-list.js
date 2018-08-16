@@ -11,21 +11,17 @@ class TicketList extends Component {
     };
   }
   componentDidMount() {
-    // this.updateTickets();
+    this.updateTickets();
   }
   updateTickets() {
-    fetch('/tickets')
+    fetch('api/tickets')
       .then(res => res.json())
       .then(tickets => this.setState({ nums: tickets }));
   }
   postTicket() {
-    fetch('http://localhost:3000/tickets', {
+    fetch('api/tickets', {
       method: 'POST',
-      // headers: {
-      // 'Accept': 'application/json',
-      // 'Content-Type': 'application/json',
-      // },
-      body: 100
+      body: JSON.stringify({ ticket: { content: 'Bahnticket vom 1.2 Zug 9485', title: 'Bahn 1' } })
     }).then(this.updateTickets());
   }
   handleClick() {
